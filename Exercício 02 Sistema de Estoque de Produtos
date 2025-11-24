@@ -1,0 +1,40 @@
+estoque = {}
+
+while True:
+    print("\n=== Sistema de Estoque ===")
+    print("1. Adicionar produto")
+    print("2. Ver estoque")
+    print("3. Atualizar quantidade")
+    print("4. Sair")
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        nome = input("Nome do produto: ")
+        qtd = int(input("Quantidade: "))
+        estoque[nome] = qtd
+        print("Produto adicionado!")
+
+    elif opcao == "2":
+        if len(estoque) == 0:
+            print("Nenhum produto cadastrado.")
+        else:
+            print("\nEstoque atual:")
+            for nome, qtd in estoque.items():
+                print(f"{nome}: {qtd} unidades")
+
+    elif opcao == "3":
+        nome = input("Qual produto deseja atualizar? ")
+        if nome in estoque:
+            nova_qtd = int(input("Nova quantidade: "))
+            estoque[nome] = nova_qtd
+            print("Quantidade atualizada.")
+        else:
+            print("Produto não encontrado.")
+
+    elif opcao == "4":
+        print("Encerrando...")
+        break
+
+    else:
+        print("Opção inválida.")
